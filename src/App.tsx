@@ -7,14 +7,14 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
 import WorkoutScreen from './pages/WorkoutScreen';
-import WorkoutSummary from './pages/WorkoutSummary'; // Import the new component
+import WorkoutSummary from './pages/WorkoutSummary';
 import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   const [user, loading] = useAuthState(auth);
 
   if (loading) {
-    return <div>Loading...</div>; // Or a proper loading spinner
+    return <div>Cargando...</div>;
   }
 
   return (
@@ -28,8 +28,9 @@ const App = () => {
         path="/dashboard" 
         element={<ProtectedRoute user={user}><Dashboard /></ProtectedRoute>}
       />
+      {/* La ruta a WorkoutScreen ya no necesita un ID dinámico */}
       <Route 
-        path="/workout/:id" 
+        path="/workout" 
         element={<ProtectedRoute user={user}><WorkoutScreen /></ProtectedRoute>}
       />
       <Route 

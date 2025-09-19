@@ -10,10 +10,8 @@ const DynamicWorkoutDisplay = ({ workout }: { workout: DailyWorkout }) => {
   const navigate = useNavigate();
 
   const handleStartWorkout = () => {
-    // La navegación a una pantalla de entrenamiento dinámica requerirá más lógica
-    // Por ahora, solo lo indicamos en la consola.
-    console.log("Iniciando entrenamiento dinámico:", workout);
-    // navigate(`/dynamic-workout/${workout.day}`);
+    // Ahora navegamos a la pantalla de entrenamiento, pasando el objeto workout completo.
+    navigate('/workout', { state: { workout } });
   };
 
   return (
@@ -52,7 +50,6 @@ const Dashboard = () => {
   };
 
   // --- Simulación de Preferencias de Usuario ---
-  // En el futuro, esto vendrá de un formulario o de la base de datos.
   const userPreferences: UserPreferences = {
     objective: 'hypertrophy',
     level: 'intermediate',
@@ -62,7 +59,6 @@ const Dashboard = () => {
 
   // --- Generación del Plan y Selección del Entrenamiento de Hoy ---
   const mesocycle = generateMesocycleForUser(userPreferences);
-  // Simulamos que estamos en la semana 1, día 1
   const todayWorkout = mesocycle.plan[0].workouts[0];
 
   return (

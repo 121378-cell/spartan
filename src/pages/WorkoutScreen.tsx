@@ -1,42 +1,73 @@
-
-import { useParams, useNavigate } from 'react-router-dom';
-import { workouts } from '../data/workouts';
-import { useWorkout } from '../hooks/useWorkout';
+import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './WorkoutScreen.module.css';
+import type { DailyWorkout, WorkoutExercise } from '../types/fitness';
 
 const WorkoutScreen = () => {
-  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const workout = workouts.find(w => w.id === id);
+  const location = useLocation();
+  const { workout } = (location.state as { workout: DailyWorkout }) || {};
 
-  const {
-    currentExercise,
-    currentExerciseIndex,
-    currentSet,
-    isResting,
-    restTime,
-    totalExercises,
-    handleNext,
-  } = useWorkout(workout || null);
+  const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
+  const [currentSet, setCurrentSet] = useState(1);
+  const [isResting, setIsResting] = useState(false);
+  const [restTime, setRestTime] = useState(0);
 
-  if (!workout || !currentExercise) {
-    return <div>Workout not found!</div>;
+  if (!workout) {
+    return (
+      <div className={styles.workoutScreenContainer}>
+        <h1>Error: No se ha proporcionado un entrenamiento.</h1>
+        <button onClick={() => navigate('/dashboard')} className={styles.finishWorkoutBtn}>
+          Volver al Panel
+        </button>
+      </div>
+    );
   }
 
+  const currentExercise: WorkoutExercise = workout.exercises[currentExerciseIndex];
+  const totalExercises = workout.exercises.length;
   const progress = ((currentExerciseIndex) / totalExercises) * 100;
+
+  const handleNext = () => {
+    setIsResting(true);
+    setRestTime(currentExercise.restPeriod);
+
+    const timer = setInterval(() => {
+      setRestTime(prev => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          setIsResting(false);
+          
+          if (currentSet < currentExercise.sets.length) {
+            setCurrentSet(currentSet + 1);
+          } else {
+            if (currentExerciseIndex < totalExercises - 1) {
+              setCurrentExerciseIndex(currentExerciseIndex + 1);
+              setCurrentSet(1);
+            } else {
+              // Workout Finished!
+              navigate('/workout-summary', { state: { workout } });
+            }
+          }
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  };
 
   return (
     <div className={styles.workoutScreenContainer}>
       {isResting ? (
         <div className={styles.restTimerOverlay}>
-          <h1>REST</h1>
+          <h1>DESCANSO</h1>
           <div className={styles.timerDisplay}>{restTime}s</div>
         </div>
       ) : (
         <>
           <div className={styles.workoutScreenHeader}>
-            <h1>{workout.title}</h1>
-            <button onClick={() => navigate('/dashboard')} className={`${styles.finishWorkoutBtn} ${styles.early}`}>Finish Early</button>
+            <h1>{workout.name}</h1>
+            <button onClick={() => navigate('/dashboard', { replace: true })} className={`${styles.finishWorkoutBtn} ${styles.early}`}>Terminar Antes</button>
           </div>
 
           <div className={styles.progressBarContainer}>
@@ -44,24 +75,24 @@ const WorkoutScreen = () => {
           </div>
 
           <div className={styles.exerciseCard}>
-            <h2 className={styles.exerciseName}>{currentExercise.name}</h2>
+            <h2 className={styles.exerciseName}>{currentExercise.definition.name}</h2>
             <div className={styles.setsRepsDisplay}>
               <div className={styles.displayItem}>
-                <span className={styles.displayLabel}>Set</span>
-                <span className={styles.displayValue}>{currentSet} / {currentExercise.sets}</span>
+                <span className={styles.displayLabel}>Serie</span>
+                <span className={styles.displayValue}>{currentSet} / {currentExercise.sets.length}</span>
               </div>
               <div className={styles.displayItem}>
                 <span className={styles.displayLabel}>Reps</span>
-                <span className={styles.displayValue}>{currentExercise.reps}</span>
+                <span className={styles.displayValue}>{currentExercise.sets[currentSet - 1].reps}</span>
               </div>
             </div>
             <button onClick={handleNext} className={styles.nextSetBtn}>
-              Mark Set as Completed
+              Marcar Serie como Completada
             </button>
           </div>
           
           <div className={styles.progressIndicator}>
-            <p>Exercise {currentExerciseIndex + 1} of {totalExercises}</p>
+            <p>Ejercicio {currentExerciseIndex + 1} de {totalExercises}</p>
           </div>
         </>
       )}
