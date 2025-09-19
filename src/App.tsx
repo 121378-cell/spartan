@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebase';
 
@@ -18,28 +18,26 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Home />} />
-        <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
-        <Route path="/signup" element={user ? <Navigate to="/dashboard" /> : <SignUp />} />
-        
-        {/* Protected Routes */}
-        <Route 
-          path="/dashboard" 
-          element={<ProtectedRoute user={user}><Dashboard /></ProtectedRoute>}
-        />
-        <Route 
-          path="/workout/:id" 
-          element={<ProtectedRoute user={user}><WorkoutScreen /></ProtectedRoute>}
-        />
-        <Route 
-          path="/workout-summary" 
-          element={<ProtectedRoute user={user}><WorkoutSummary /></ProtectedRoute>}
-        />
+    <Routes>
+      <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Home />} />
+      <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
+      <Route path="/signup" element={user ? <Navigate to="/dashboard" /> : <SignUp />} />
+      
+      {/* Protected Routes */}
+      <Route 
+        path="/dashboard" 
+        element={<ProtectedRoute user={user}><Dashboard /></ProtectedRoute>}
+      />
+      <Route 
+        path="/workout/:id" 
+        element={<ProtectedRoute user={user}><WorkoutScreen /></ProtectedRoute>}
+      />
+      <Route 
+        path="/workout-summary" 
+        element={<ProtectedRoute user={user}><WorkoutSummary /></ProtectedRoute>}
+      />
 
-      </Routes>
-    </BrowserRouter>
+    </Routes>
   );
 };
 

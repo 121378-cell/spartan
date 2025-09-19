@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Workout } from '../types';
+import type { Workout } from '../types/workout';
 import './WorkoutOfTheDay.css';
 
 interface Props {

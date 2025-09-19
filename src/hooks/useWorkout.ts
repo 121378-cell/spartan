@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Workout, Exercise } from '../types';
+import type { Workout, Exercise } from '../types/workout';
 
 export const useWorkout = (workout: Workout | null) => {
   const navigate = useNavigate();

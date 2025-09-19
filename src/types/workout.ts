@@ -12,8 +12,3 @@ export interface Workout {
   focus: 'Upper Body' | 'Lower Body' | 'Full Body' | 'Core';
   exercises: Exercise[];
 }
-
-export interface WorkoutLog extends Workout {
-  userId: string;
-  dateCompleted: Date;
-}

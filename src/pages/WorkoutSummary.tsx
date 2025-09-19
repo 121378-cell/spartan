@@ -5,7 +5,8 @@ import { collection, addDoc } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import styles from './WorkoutSummary.module.css';
-import { WorkoutLog, Workout } from '../types';
+import type { WorkoutLog } from '../types/workoutLog';
+import type { Workout } from '../types/workout';
 
 const WorkoutSummary = () => {
   const navigate = useNavigate();
