@@ -1,9 +1,44 @@
 import { getAuth, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import WorkoutOfTheDay from '../components/WorkoutOfTheDay';
-import { workouts } from '../data/workouts'; // Import the workouts library
-import ChatMaestro from '../components/ChatMaestro'; // Import the new component
+import ChatMaestro from '../components/ChatMaestro';
+import { generateMesocycleForUser } from '../logic/RoutineGenerator';
+import type { UserPreferences, DailyWorkout } from '../types/fitness';
 import './Dashboard.css';
+
+// --- Nuevo componente para mostrar el entrenamiento dinámico ---
+const DynamicWorkoutDisplay = ({ workout }: { workout: DailyWorkout }) => {
+  const navigate = useNavigate();
+
+  const handleStartWorkout = () => {
+    // La navegación a una pantalla de entrenamiento dinámica requerirá más lógica
+    // Por ahora, solo lo indicamos en la consola.
+    console.log("Iniciando entrenamiento dinámico:", workout);
+    // navigate(`/dynamic-workout/${workout.day}`);
+  };
+
+  return (
+    <div className="wotd-container">
+      <h2 className="wotd-title">Tu Misión de Hoy: {workout.name}</h2>
+      <div className="wotd-card">
+        <h3 className="workout-title">Foco: {workout.focus.join(', ')}</h3>
+        <ul className="exercise-list">
+          {workout.exercises.map((exercise, index) => (
+            <li key={index} className="exercise-item">
+              <span className="exercise-name">{exercise.definition.name}</span>
+              <span className="exercise-sets-reps">
+                {exercise.sets.length} series de {exercise.sets[0].reps} reps
+              </span>
+            </li>
+          ))}
+        </ul>
+        <button onClick={handleStartWorkout} className="start-workout-btn">
+          Comenzar Misión
+        </button>
+      </div>
+    </div>
+  );
+};
+
 
 const Dashboard = () => {
   const auth = getAuth();
@@ -16,8 +51,19 @@ const Dashboard = () => {
     });
   };
 
-  // For now, let's just pick the first workout from our library
-  const workoutForToday = workouts[0];
+  // --- Simulación de Preferencias de Usuario ---
+  // En el futuro, esto vendrá de un formulario o de la base de datos.
+  const userPreferences: UserPreferences = {
+    objective: 'hypertrophy',
+    level: 'intermediate',
+    availableEquipment: ['full_gym', 'dumbbells'],
+    daysPerWeek: 4,
+  };
+
+  // --- Generación del Plan y Selección del Entrenamiento de Hoy ---
+  const mesocycle = generateMesocycleForUser(userPreferences);
+  // Simulamos que estamos en la semana 1, día 1
+  const todayWorkout = mesocycle.plan[0].workouts[0];
 
   return (
     <div className="dashboard-container">
@@ -30,13 +76,16 @@ const Dashboard = () => {
           Bienvenido, {user ? user.email : 'Espartano'}
         </h1>
         <p className="motivation-quote">
-          "El único entrenamiento malo es el que no se hace."
+          "La disciplina es el puente entre las metas y los logros."
         </p>
         
         <ChatMaestro />
         
-        {/* Pass the selected workout to the component */}
-        <WorkoutOfTheDay workout={workoutForToday} />
+        {todayWorkout ? (
+          <DynamicWorkoutDisplay workout={todayWorkout} />
+        ) : (
+          <p>No hay entrenamiento programado para hoy.</p>
+        )}
 
       </main>
     </div>
