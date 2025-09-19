@@ -1,0 +1,161 @@
+.workoutScreenContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: var(--spartan-dark-bg);
+  color: white;
+  position: relative;
+}
+
+.restTimerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.restTimerOverlay h1 {
+  font-size: 5rem;
+  color: var(--spartan-red);
+  margin-bottom: 20px;
+}
+
+.timerDisplay {
+  font-size: 8rem;
+  font-weight: 700;
+  color: var(--spartan-gold);
+}
+
+.skipRestBtn {
+  margin-top: 30px;
+  background: none;
+  border: 1px solid var(--spartan-light-gray);
+  color: var(--spartan-light-gray);
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.skipRestBtn:hover {
+  background: var(--spartan-light-gray);
+  color: var(--spartan-dark-bg);
+}
+
+.workoutScreenHeader {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.workoutScreenHeader h1 {
+  font-size: 2.5rem;
+  color: var(--spartan-gold);
+}
+
+.finishWorkoutBtn.early {
+  background: var(--spartan-light-gray);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.finishWorkoutBtn.early:hover {
+  background: var(--spartan-dark-gray);
+}
+
+.progressBarContainer {
+  width: 100%;
+  max-width: 600px;
+  height: 10px;
+  background-color: var(--spartan-dark-gray);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: var(--spartan-gold);
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+
+.exerciseCard {
+  background: var(--spartan-dark-gray);
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.exerciseName {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--spartan-red);
+  margin-bottom: 30px;
+}
+
+.setsRepsDisplay {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.displayItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.displayLabel {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+.displayValue {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.nextSetBtn {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--spartan-gold);
+  color: var(--spartan-dark-gray);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nextSetBtn:hover {
+  background-color: #ffc107;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+}
+
+.progressIndicator {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+}

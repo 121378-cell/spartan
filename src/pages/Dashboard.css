@@ -1,0 +1,54 @@
+.dashboard-container {
+  background-color: var(--spartan-background);
+  min-height: 100vh;
+  color: #fff;
+}
+
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: var(--spartan-dark-gray);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--spartan-red);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logout-button {
+  background: transparent;
+  border: 1px solid var(--spartan-red);
+  color: var(--spartan-red);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background: var(--spartan-red);
+  color: #fff;
+}
+
+.dashboard-main {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.welcome-message {
+  font-size: 3rem;
+  color: var(--spartan-gold);
+}
+
+.motivation-quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 20px;
+}

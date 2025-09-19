@@ -1,0 +1,89 @@
+.summaryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px;
+  background-color: var(--spartan-dark-bg);
+  color: white;
+  text-align: center;
+}
+
+.title {
+  font-size: 3.5rem;
+  color: var(--spartan-gold);
+  margin-bottom: 20px;
+}
+
+.workoutTitle {
+  font-size: 2rem;
+  color: var(--spartan-red);
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.exercisesList {
+  margin-bottom: 40px;
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+}
+
+.exercisesList h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--spartan-gold);
+  border-bottom: 2px solid var(--spartan-gold);
+  padding-bottom: 10px;
+}
+
+.exercisesList ul {
+  list-style: none;
+  padding: 0;
+}
+
+.exercisesList li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  background: var(--spartan-dark-gray);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.primaryBtn {
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--spartan-gold);
+  color: var(--spartan-dark-gray);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primaryBtn:hover {
+  background-color: #ffc107;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+}
+
+.statusMessage {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.success {
+  color: var(--spartan-gold);
+}
+
+.error {
+  color: var(--spartan-red);
+}

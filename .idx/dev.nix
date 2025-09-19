@@ -5,7 +5,7 @@
   channel = "stable-24.05"; # or "unstable"
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    pkgs.nodejs_20
+    pkgs.nodejs_22 # Using a specific version to meet Vite requirements
   ];
   # Sets environment variables in the workspace
   env = {};
@@ -23,6 +23,9 @@
         default.openFiles = [ "src/App.tsx" "src/App.ts" "src/App.jsx" "src/App.js" ];
       };
       # To run something each time the workspace is (re)started, use the `onStart` hook
+      onStart = {
+        web-preview = "npm run dev -- --port \$PORT --host 0.0.0.0";
+      };
     };
     # Enable previews and customize configuration
     previews = {

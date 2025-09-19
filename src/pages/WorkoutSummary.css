@@ -1,0 +1,89 @@
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 40px;
+  background-color: var(--spartan-dark-bg);
+  color: white;
+}
+
+.congrats-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--spartan-gold);
+  margin-bottom: 10px;
+}
+
+.congrats-subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+}
+
+.summary-card {
+  background: var(--spartan-dark-gray);
+  border-radius: 15px;
+  padding: 30px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  margin-bottom: 40px;
+}
+
+.workout-title {
+  font-size: 2.5rem;
+  color: var(--spartan-red);
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--spartan-gold);
+  padding-bottom: 15px;
+}
+
+.exercise-summary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.exercise-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--spartan-light-gray);
+}
+
+.exercise-summary-item:last-child {
+  border-bottom: none;
+}
+
+.exercise-name {
+  font-weight: 600;
+}
+
+.sets-reps {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.return-btn {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--spartan-gold);
+  color: var(--spartan-dark-gray);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.return-btn:hover {
+  background-color: #ffc107;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+}
