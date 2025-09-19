@@ -15,7 +15,7 @@ const WorkoutOfTheDay = ({ workout }: Props) => {
 
   return (
     <div className="wotd-container">
-      <h2 className="wotd-title">Workout of the Day</h2>
+      <h2 className="wotd-title">Entrenamiento del Día</h2>
       <div className="wotd-card">
         <h3 className="workout-title">{workout.title}</h3>
         <p className="workout-description">{workout.description}</p>
@@ -23,12 +23,12 @@ const WorkoutOfTheDay = ({ workout }: Props) => {
           {workout.exercises.map((exercise, index) => (
             <li key={index} className="exercise-item">
               <span className="exercise-name">{exercise.name}</span>
-              <span className="exercise-sets-reps">{exercise.sets} sets of {exercise.reps} reps</span>
+              <span className="exercise-sets-reps">{exercise.sets} series de {exercise.reps} reps</span>
             </li>
           ))}
         </ul>
         <button onClick={handleStartWorkout} className="start-workout-btn">
-          Start Workout
+          Comenzar Entrenamiento
         </button>
       </div>
     </div>

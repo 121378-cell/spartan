@@ -2,6 +2,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import WorkoutOfTheDay from '../components/WorkoutOfTheDay';
 import { workouts } from '../data/workouts'; // Import the workouts library
+import ChatMaestro from '../components/ChatMaestro'; // Import the new component
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -22,15 +23,17 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <nav className="dashboard-nav">
         <div className="logo">SPARTAN</div>
-        <button onClick={handleLogout} className="logout-button">Logout</button>
+        <button onClick={handleLogout} className="logout-button">Cerrar Sesión</button>
       </nav>
       <main className="dashboard-main">
         <h1 className="welcome-message">
-          Welcome, {user ? user.email : 'Spartan'}
+          Bienvenido, {user ? user.email : 'Espartano'}
         </h1>
         <p className="motivation-quote">
-          "The only bad workout is the one that didn't happen."
+          "El único entrenamiento malo es el que no se hace."
         </p>
+        
+        <ChatMaestro />
         
         {/* Pass the selected workout to the component */}
         <WorkoutOfTheDay workout={workoutForToday} />
