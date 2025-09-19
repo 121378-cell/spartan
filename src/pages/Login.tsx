@@ -18,29 +18,29 @@ export default function Login() {
       if (err instanceof Error) {
         setError(err.message);
       } else {
-        setError('An unexpected error occurred.');
+        setError('Ocurrió un error inesperado.');
       }
     }
   };
 
   return (
     <Container size="xs">
-      <Title order={2}>Login</Title>
+      <Title order={2}>Iniciar Sesión</Title>
       {error && <Alert color="red">{error}</Alert>}
       <TextInput
         label="Email"
-        placeholder="your@email.com"
+        placeholder="tu@email.com"
         value={email}
         onChange={(e) => setEmail(e.currentTarget.value)}
       />
       <PasswordInput
-        label="Password"
-        placeholder="Your password"
+        label="Contraseña"
+        placeholder="Tu contraseña"
         value={password}
         onChange={(e) => setPassword(e.currentTarget.value)}
       />
       <Group >
-        <Button onClick={handleLogin}>Login</Button>
+        <Button onClick={handleLogin}>Iniciar Sesión</Button>
       </Group>
     </Container>
   );

@@ -20,7 +20,7 @@ const SignUp = () => {
       if (err instanceof Error) {
         setError(err.message);
       } else {
-        setError('An unexpected error occurred.');
+        setError('Ocurrió un error inesperado.');
       }
     }
   };
@@ -28,8 +28,8 @@ const SignUp = () => {
   return (
     <div className="signup-container">
       <div className="signup-box">
-        <h2 className="signup-title">Create Your Spartan Account</h2>
-        <p className="signup-subtitle">Join the ranks. Forge your new self.</p>
+        <h2 className="signup-title">Crea Tu Cuenta Spartan</h2>
+        <p className="signup-subtitle">Únete a las filas. Forja tu nuevo yo.</p>
         <form onSubmit={handleSignUp} className="signup-form">
           <div className="input-group">
             <input
@@ -45,15 +45,15 @@ const SignUp = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
+              placeholder="Contraseña"
               required
             />
           </div>
           {error && <p className="error-message">{error}</p>}
-          <button type="submit" className="signup-button">Sign Up</button>
+          <button type="submit" className="signup-button">Registrarse</button>
         </form>
         <p className="login-link">
-          Already have an account? <Link to="/login">Log In</Link>
+          ¿Ya tienes una cuenta? <Link to="/login">Inicia Sesión</Link>
         </p>
       </div>
     </div>

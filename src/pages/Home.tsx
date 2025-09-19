@@ -7,18 +7,18 @@ const Home = () => {
       <div className="overlay"></div>
       <header className="home-header">
         <h1 className="title">
-          FORGE YOUR LEGACY
+          FORJA TU LEYENDA
         </h1>
         <p className="subtitle">
-          Welcome to <span className="spartan-text">Spartan</span>
+          Bienvenido a <span className="spartan-text">Spartan</span>
         </p>
       </header>
       <main className="main-content">
         <p className="description">
-          Your personal AI-powered trainer is ready. Personalized workouts, real-time feedback, and data-driven progress. Stop guessing, start achieving.
+          Tu entrenador personal con IA está listo. Entrenamientos personalizados, feedback en tiempo real y progreso basado en datos. Deja de adivinar, empieza a conseguirlo.
         </p>
         <Link to="/signup" className="cta-button">
-          Start Your Transformation
+          Comienza Tu Transformación
         </Link>
       </main>
     </div>

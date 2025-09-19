@@ -42,9 +42,9 @@ const WorkoutSummary = () => {
   if (!workout) {
     return (
       <div className={styles.summaryContainer}>
-        <h1>No workout data available.</h1>
+        <h1>No hay datos de entrenamiento disponibles.</h1>
         <button onClick={() => navigate('/dashboard')} className={styles.primaryBtn}>
-          Back to Dashboard
+          Volver al Panel
         </button>
       </div>
     );
@@ -52,27 +52,27 @@ const WorkoutSummary = () => {
 
   return (
     <div className={styles.summaryContainer}>
-      <h1 className={styles.title}>Workout Completed!</h1>
+      <h1 className={styles.title}>¡Entrenamiento Completado!</h1>
       <h2 className={styles.workoutTitle}>{workout.title}</h2>
-      <p className={styles.description}>You have successfully completed the <strong>{workout.focus}</strong> workout. Well done, Spartan!</p>
+      <p className={styles.description}>Has completado con éxito el entrenamiento de <strong>{workout.focus}</strong>. ¡Bien hecho, Espartano!</p>
 
       <div className={styles.statusMessage}>
-        {isSaving && <p>Saving your workout...</p>}
-        {saveSuccess === true && <p className={styles.success}>Workout saved successfully!</p>}
-        {saveSuccess === false && <p className={styles.error}>Failed to save workout. Please try again.</p>}
+        {isSaving && <p>Guardando tu entrenamiento...</p>}
+        {saveSuccess === true && <p className={styles.success}>¡Entrenamiento guardado con éxito!</p>}
+        {saveSuccess === false && <p className={styles.error}>Error al guardar el entrenamiento. Por favor, inténtalo de nuevo.</p>}
       </div>
 
       <div className={styles.exercisesList}>
-        <h3>Completed Exercises:</h3>
+        <h3>Ejercicios Completados:</h3>
         <ul>
           {workout.exercises.map((exercise, index) => (
-            <li key={index}>{exercise.name} - {exercise.sets} sets</li>
+            <li key={index}>{exercise.name} - {exercise.sets} series</li>
           ))}
         </ul>
       </div>
 
       <button onClick={() => navigate('/dashboard')} className={styles.primaryBtn}>
-        Back to Dashboard
+        Volver al Panel
       </button>
     </div>
   );
