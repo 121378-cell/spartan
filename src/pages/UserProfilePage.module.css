@@ -1,0 +1,108 @@
+
+.profileContainer {
+    padding: 20px;
+    background-color: var(--spartan-dark-bg);
+    color: white;
+    min-height: 100vh;
+}
+
+.loading, .error {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-top: 50px;
+}
+
+.profileHeader {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profilePicture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--spartan-gold);
+    margin-bottom: 20px;
+}
+
+.profileHeader h1 {
+    color: var(--spartan-gold);
+    margin-bottom: 5px;
+}
+
+.profileHeader p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.friendRequestButton, .messageButton {
+    background-color: var(--spartan-red);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.friendRequestButton:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+.achievementsSection, .friendsSection {
+    background-color: var(--spartan-dark-gray);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.achievementsSection h2, .friendsSection h2 {
+    color: var(--spartan-red);
+    margin-bottom: 15px;
+}
+
+.achievementsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.achievementCard {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.achievementCard.unlocked {
+    opacity: 1;
+    border: 1px solid var(--spartan-gold);
+}
+
+.achievementCard h3 {
+    color: var(--spartan-gold);
+    margin-top: 0;
+}
+
+.unlockedBadge {
+    font-size: 0.8rem;
+    color: var(--spartan-gold);
+    font-weight: bold;
+    text-align: right;
+}
+
+.friendsSection ul {
+    list-style: none;
+    padding: 0;
+}
+
+.friendsSection li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}

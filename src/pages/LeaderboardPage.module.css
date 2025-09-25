@@ -1,0 +1,48 @@
+
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--spartan-charcoal);
+}
+
+.dashboardNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--spartan-dark-gray);
+    color: white;
+    border-bottom: 2px solid var(--spartan-gold);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--spartan-red);
+    cursor: pointer;
+}
+
+.backButton {
+    background-color: var(--spartan-red);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.backButton:hover {
+    background-color: #a02d2d; /* Darker red */
+}
+
+.mainContent {
+    flex-grow: 1;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}

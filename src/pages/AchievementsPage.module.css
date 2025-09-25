@@ -1,0 +1,52 @@
+
+.achievementsContainer {
+    padding: 20px;
+    background-color: var(--spartan-dark-bg);
+    color: white;
+    min-height: 100vh;
+}
+
+.achievementsContainer h1 {
+    text-align: center;
+    color: var(--spartan-gold);
+    margin-bottom: 30px;
+}
+
+.achievementsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.achievementCard {
+    background-color: var(--spartan-dark-gray);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--spartan-dark-gray);
+    transition: all 0.3s ease;
+}
+
+.achievementCard.unlocked {
+    border-color: var(--spartan-gold);
+}
+
+.achievementCard h3 {
+    color: var(--spartan-red);
+    margin-bottom: 10px;
+}
+
+.achievementCard p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.unlockedBadge {
+    margin-top: 15px;
+    padding: 5px 10px;
+    background-color: var(--spartan-gold);
+    color: var(--spartan-dark-bg);
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}

@@ -16,7 +16,7 @@ describe('App', () => {
         <App />
       </MemoryRouter>
     );
-    expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
+    expect(screen.getByText(/Cargando.../i)).toBeInTheDocument();
   });
 
   it('renders the home page for logged-out users', async () => {
@@ -27,7 +27,8 @@ describe('App', () => {
       </MemoryRouter>
     );
     await waitFor(() => {
-      expect(screen.getByText(/Welcome to the Fitness Tracker/i)).toBeInTheDocument();
+      expect(screen.getByText(/Bienvenido a/i)).toBeInTheDocument();
+      expect(screen.getByText(/Spartan/i)).toBeInTheDocument();
     });
   });
 
@@ -39,7 +40,7 @@ describe('App', () => {
       </MemoryRouter>
     );
     await waitFor(() => {
-      expect(screen.getByText(/Welcome to your Dashboard/i)).toBeInTheDocument();
+      expect(screen.getByText(/Bienvenido, Espartano/i)).toBeInTheDocument();
     });
   });
 });

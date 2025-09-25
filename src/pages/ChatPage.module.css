@@ -1,0 +1,43 @@
+
+.chatPageContainer {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    height: 100vh;
+    background-color: var(--spartan-dark-bg);
+    color: white;
+}
+
+.conversationsPanel {
+    grid-column: 1;
+    height: 100vh;
+}
+
+.chatPanel {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.noConversationSelected {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--spartan-dark-gray);
+}
+
+.noConversationSelected div {
+    max-width: 400px;
+}
+
+.noConversationSelected h2 {
+    color: var(--spartan-gold);
+    font-size: 2rem;
+}
+
+.noConversationSelected p {
+    color: #ccc;
+    font-size: 1.1rem;
+}

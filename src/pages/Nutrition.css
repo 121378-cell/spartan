@@ -1,0 +1,16 @@
+
+.nutrition-page {
+  padding: 20px;
+  color: #fff;
+}
+
+.user-profile-summary {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.user-profile-summary h2 {
+  margin-top: 0;
+}

@@ -1,0 +1,95 @@
+
+.meal-plan {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.macros-summary {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  background-color: #2a2a2a;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.macro-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.macro-label {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.macro-value {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.meals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.meal-category {
+  background-color: #2a2a2a;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.meal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.meal-item.consumed {
+    background-color: #3a4a3a;
+}
+
+.meal-info {
+  flex-grow: 1;
+}
+
+.meal-info h4 {
+  margin: 0 0 5px 0;
+  color: #00aaff;
+}
+
+.meal-actions {
+  display: flex;
+  align-items: center;
+}
+
+.meal-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.swap-meal-btn {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.3s ease;
+}
+
+.swap-meal-btn:hover {
+  background-color: #555;
+}

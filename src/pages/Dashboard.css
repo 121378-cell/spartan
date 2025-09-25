@@ -21,6 +21,19 @@
   text-transform: uppercase;
 }
 
+.nav-button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  color: var(--spartan-red);
+}
+
 .logout-button {
   background: transparent;
   border: 1px solid var(--spartan-red);
@@ -29,6 +42,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-left: 10px;
 }
 
 .logout-button:hover {

@@ -1,0 +1,43 @@
+
+.friendRequestsContainer {
+    background-color: var(--spartan-dark-gray);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.friendRequestsContainer h3 {
+    color: var(--spartan-gold);
+    margin-top: 0;
+}
+
+.request {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.request:last-child {
+    border-bottom: none;
+}
+
+.request p {
+    margin: 0;
+    color: white;
+}
+
+.request button {
+    margin-left: 10px;
+    background-color: var(--spartan-red);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.request button:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,87 @@
+
+.user-profile-form-container {
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 10px;
+  color: #fff;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.user-profile-form-container h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.user-profile-form-container p {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.user-profile-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  background-color: #2a2a2a;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox-group input {
+  margin-right: 8px;
+}
+
+.submit-btn {
+  grid-column: 1 / -1;
+  background-color: #00aaff;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #0088cc;
+}

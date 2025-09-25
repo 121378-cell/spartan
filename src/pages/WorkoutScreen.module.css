@@ -1,3 +1,4 @@
+
 .workoutScreenContainer {
   display: flex;
   flex-direction: column;
@@ -135,6 +136,40 @@
   font-weight: 700;
 }
 
+.inputFields {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+}
+
+.inputGroup label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: var(--spartan-dark-bg);
+    border: 1px solid var(--spartan-light-gray);
+    color: white;
+    border-radius: 5px;
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
 .nextSetBtn {
   width: 100%;
   padding: 20px;
@@ -146,6 +181,7 @@
   color: var(--spartan-dark-gray);
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 20px;
 }
 
 .nextSetBtn:hover {

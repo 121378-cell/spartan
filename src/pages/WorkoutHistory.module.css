@@ -1,0 +1,135 @@
+
+.historyContainer {
+    padding: 20px;
+    background-color: var(--spartan-dark-bg);
+    color: white;
+    min-height: 100vh;
+}
+
+.loading {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-top: 50px;
+}
+
+.historyContainer h1 {
+    text-align: center;
+    color: var(--spartan-gold);
+    margin-bottom: 30px;
+}
+
+.logsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.logCard {
+    background-color: var(--spartan-dark-gray);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.logCard h2 {
+    color: var(--spartan-red);
+    margin-bottom: 5px;
+}
+
+.logCard p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.exercisesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.exercise {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.exerciseHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.exerciseHeader h3 {
+    font-size: 1.1rem;
+    color: var(--spartan-gold);
+    margin: 0;
+}
+
+.viewProgressBtn {
+    background: var(--spartan-gold);
+    color: var(--spartan-dark-bg);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.viewProgressBtn:hover {
+    background-color: #ffc107;
+}
+
+.exercise ul {
+    list-style: none;
+    padding: 0;
+}
+
+.exercise li {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.chartOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.chartContainer {
+    background: var(--spartan-dark-gray);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.closeChartBtn {
+    display: block;
+    margin: 20px auto 0;
+    background: var(--spartan-red);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.closeChartBtn:hover {
+    background-color: #c82333;
+}

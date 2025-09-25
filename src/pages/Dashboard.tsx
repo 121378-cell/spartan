@@ -1,16 +1,20 @@
+
 import { getAuth, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import ChatMaestro from '../components/ChatMaestro';
+import FriendRequests from '../components/FriendRequests';
+import UserSearch from '../components/UserSearch';
+import ActivityFeed from '../components/ActivityFeed';
+import ChallengeComponent from '../components/Challenge'; // Import the new component
 import { generateMesocycleForUser } from '../logic/RoutineGenerator';
+import { seedInitialChallenge } from '../services/challengeService'; // Import the seed function
 import type { UserPreferences, DailyWorkout } from '../types/fitness';
 import './Dashboard.css';
 
-// --- Nuevo componente para mostrar el entrenamiento dinámico ---
 const DynamicWorkoutDisplay = ({ workout }: { workout: DailyWorkout }) => {
   const navigate = useNavigate();
 
   const handleStartWorkout = () => {
-    // Ahora navegamos a la pantalla de entrenamiento, pasando el objeto workout completo.
     navigate('/workout', { state: { workout } });
   };
 
@@ -37,7 +41,6 @@ const DynamicWorkoutDisplay = ({ workout }: { workout: DailyWorkout }) => {
   );
 };
 
-
 const Dashboard = () => {
   const auth = getAuth();
   const navigate = useNavigate();
@@ -49,7 +52,43 @@ const Dashboard = () => {
     });
   };
 
-  // --- Simulación de Preferencias de Usuario ---
+  const handleNavigateToNutrition = () => {
+    navigate('/nutrition');
+  };
+
+  const handleNavigateToHistory = () => {
+    navigate('/workout-history');
+  };
+
+  const handleNavigateToAchievements = () => {
+    navigate('/achievements');
+  };
+
+  const handleNavigateToProfile = () => {
+    if (user) {
+      navigate(`/profile/${user.uid}`);
+    }
+  };
+
+  const handleNavigateToLeaderboard = () => {
+    navigate('/leaderboard');
+  };
+
+  const handleNavigateToChat = () => {
+    navigate('/chat');
+  };
+
+  // Temporary function to seed the challenge
+  const handleSeedChallenge = async () => {
+    try {
+      await seedInitialChallenge();
+      alert('Challenge seeded successfully!');
+    } catch (error) {
+      console.error("Failed to seed challenge: ", error);
+      alert('Failed to seed challenge. See console for details.');
+    }
+  };
+
   const userPreferences: UserPreferences = {
     objective: 'hypertrophy',
     level: 'intermediate',
@@ -57,7 +96,6 @@ const Dashboard = () => {
     daysPerWeek: 4,
   };
 
-  // --- Generación del Plan y Selección del Entrenamiento de Hoy ---
   const mesocycle = generateMesocycleForUser(userPreferences);
   const todayWorkout = mesocycle.plan[0].workouts[0];
 
@@ -65,7 +103,15 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <nav className="dashboard-nav">
         <div className="logo">SPARTAN</div>
-        <button onClick={handleLogout} className="logout-button">Cerrar Sesión</button>
+        <div>
+          <button onClick={handleNavigateToNutrition} className="nav-button">Nutrición</button>
+          <button onClick={handleNavigateToHistory} className="nav-button">Historial</button>
+          <button onClick={handleNavigateToAchievements} className="nav-button">Logros</button>
+          <button onClick={handleNavigateToLeaderboard} className="nav-button">Clasificación</button>
+          <button onClick={handleNavigateToChat} className="nav-button">Mensajes</button>
+          <button onClick={handleNavigateToProfile} className="nav-button">Perfil</button>
+          <button onClick={handleLogout} className="logout-button">Cerrar Sesión</button>
+        </div>
       </nav>
       <main className="dashboard-main">
         <h1 className="welcome-message">
@@ -74,7 +120,16 @@ const Dashboard = () => {
         <p className="motivation-quote">
           "La disciplina es el puente entre las metas y los logros."
         </p>
-        
+
+        {/* Temporary Button to Seed Challenge - Remove in production */}
+        <button onClick={handleSeedChallenge} style={{ marginBottom: '20px', padding: '10px', backgroundColor: '#ffc107', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+          Seed Enero Challenge (Dev)
+        </button>
+
+        <ChallengeComponent />
+        <UserSearch />
+        <FriendRequests />
+        <ActivityFeed /> 
         <ChatMaestro />
         
         {todayWorkout ? (
